@@ -14,6 +14,11 @@ class ThingsController < ApplicationController
     respond_with thing
   end
 
+  def update
+    thing.update_attributes params[:thing]
+    respond_with thing
+  end
+
 
 
   private

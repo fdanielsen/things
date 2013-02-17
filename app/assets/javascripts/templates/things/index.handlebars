@@ -1,8 +1,5 @@
 {{#each content}}
-  <article>
-    <img {{bindAttr src="imageUrl"}} />
-    <h2>{{title}} ({{likesCount}})</h2>
-  </article>
+  {{view Things.ThingAsArticleView}}
 {{else}}
   Nothing!
 {{/each}}
