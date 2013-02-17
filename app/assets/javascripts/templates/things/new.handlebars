@@ -1,0 +1,36 @@
+<h2>New thing</h2>
+<div class="required">
+  <label>
+    Title
+    {{view Ember.TextField valueBinding="title"}}
+  </label>
+</div>
+<div class="required">
+  <label>
+    Image URL
+    {{view Ember.TextField valueBinding="imageUrl"}}
+  </label>
+</div>
+<div>
+  <label>
+    Description
+    {{view Ember.TextArea valueBinding="description"}}
+  </label>
+</div>
+<h3>Tags ({{tags.length}})</h3>
+<ul>
+  {{#each tags}}
+    <li>{{this}}</li>
+  {{else}}
+    <li><em>No tags, yet!</em></li>
+  {{/each}}
+</ul>
+<div>
+  <label>
+    Add tag
+    {{view Ember.TextField valueBinding="newTag" action="addTag"}}
+    <button {{action addTag}}>+</button>
+  </label>
+</div>
+
+<button {{action save}}>Add {{title}}</button>

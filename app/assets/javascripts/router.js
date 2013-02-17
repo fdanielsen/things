@@ -1,3 +1,0 @@
-Things.Router.map(function() {
-
-});
