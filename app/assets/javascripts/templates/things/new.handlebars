@@ -17,20 +17,5 @@
     {{view Ember.TextArea valueBinding="description"}}
   </label>
 </div>
-<h3>Tags ({{tags.length}})</h3>
-<ul>
-  {{#each tags}}
-    <li>{{name}}</li>
-  {{else}}
-    <li><em>No tags, yet!</em></li>
-  {{/each}}
-</ul>
-<div>
-  <label>
-    Add tag
-    {{view Ember.TextField valueBinding="newTag" action="addTag"}}
-    <button {{action addTag}}>+</button>
-  </label>
-</div>
 
 <button {{action save}}>Add {{title}}</button>
