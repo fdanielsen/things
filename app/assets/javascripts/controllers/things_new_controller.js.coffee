@@ -4,5 +4,5 @@ Things.ThingsNewController = Ember.ObjectController.extend
     tags = @get("model.tags")
 
     if tag.length > 0 and not tags.contains(tag)
-      tags.pushObject tag
+      tags.createRecord name: tag
       @set "newTag", ""

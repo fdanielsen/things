@@ -9,15 +9,24 @@ class ThingsController < ApplicationController
     respond_with thing
   end
 
+  def create
+    thing.save
+    respond_with thing
+  end
+
 
 
   private
 
   def things
-    Thing.all
+    @things ||= params[:ids] ? Thing.where(id: params[:ids]) : Thing.scoped
   end
 
   def thing
-    Thing.find params[:id]
+    @thing ||= if params[:id]
+      Thing.find params[:id]
+    else
+      Thing.new params[:thing]
+    end
   end
 end

@@ -1,13 +1,7 @@
 Things.ThingsNewRoute = Ember.Route.extend
-  model: ->
-    App.Thing.create()
+  model: -> Things.Thing.createRecord()
 
   events:
     save: ->
-      thing = @currentModel
-
-      if thing.get("isValid")
-        @controllerFor("application").get("things").pushObject thing
-        @transitionTo "things"
-      else
-        alert "Sorry, invalid thing!"
+      @currentModel.one 'didCreate', => @transitionTo "things"
+      @get('store').commit()
